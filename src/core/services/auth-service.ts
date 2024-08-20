@@ -1,12 +1,11 @@
 import axios from "axios";
 import toastr from 'toastr'
-import { store } from "../../store/configure-store";
 import { BASE_API_URL } from "../../environment/environment";
-import { AuthLoginRequest, AuthRegisterModel, LoginResponseModel, TokenModel } from "../models/auth-model";
+import { AuthLoginRequest, AuthRegisterModel, LoginResponseModel } from "../models/auth-model";
 import tokenService from "./token-service";
-import { error } from "console";
 
 class AuthService {
+    
   public async login(data: AuthLoginRequest){
     await axios.post<LoginResponseModel>(
         `${BASE_API_URL}Auth/Login`,
@@ -19,7 +18,6 @@ class AuthService {
         toastr.error(response);
       })
       ;
-    
     }
   
   
@@ -38,13 +36,13 @@ class AuthService {
 
   async changePassword(data: string) {    
 
-    await axios.put(`${BASE_API_URL}/ChangePassword`, data, {
+    await axios.put(`${BASE_API_URL}Auth/ChangePassword`, data, {
         headers: {
           Authorization: `Bearer ${tokenService.getToken()}`,
         },
       });
-      
     }
+
 }
 
 
