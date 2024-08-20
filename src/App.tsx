@@ -17,7 +17,7 @@ function App() {
 	return (
 		<>
 			{/* Navbar */}
-			<BasicNavbar/>
+			<BasicNavbar fixed="top" sticky="top" backgroundColor={'blue'}  expand='xxl'  dataBsTheme="dark"/>
 			{<OverlayLoaderImage imageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/220px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"/> }
 			 {/* <OverlayLoaderBike width='20em' />  */}
 			{/* <OverlayLoaderInfinity /> */}

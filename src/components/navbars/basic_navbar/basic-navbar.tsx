@@ -1,15 +1,30 @@
+import { CSSProperties } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
-interface Props {}
+interface Props {
+  fixed?: "top" | "bottom";
+  sticky?: "top" | "bottom";
+  backgroundColor: CSSProperties['backgroundColor'];
+  expand?: boolean | "sm" | "md" | "lg" | "xl" | "xxl";
+  dataBsTheme?:"dark"|"light";
+}
 
 function BasicNavbar(props: Props) {
     return (
-        <Navbar collapseOnSelect expand="sm" bg="primary" data-bs-theme="dark" >
+      <  >
+       <Navbar 
+          fixed={props.fixed} 
+          sticky={props.sticky} 
+          collapseOnSelect 
+          style={{ backgroundColor: props.backgroundColor }}  
+          expand={props.expand ? props.expand : 'lg'}  
+          data-bs-theme={props.dataBsTheme?props.dataBsTheme:'dark'} >
           <Container>
             <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
+                {/* {<Nav.Item><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/220px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"/></Nav.Item>} */}
                 <Nav.Link href="#features">Sample 1</Nav.Link>
                 <Nav.Link href="#pricing">Sample 2 </Nav.Link>
                 <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
@@ -33,8 +48,13 @@ function BasicNavbar(props: Props) {
             </Navbar.Collapse>
           </Container>
         </Navbar>
+
+ 
+      </>
+        
       );
 }
+
 
 export default BasicNavbar;
 
